@@ -65,7 +65,6 @@ public class SocialMediaController {
     private void registerAccount(Context ctx) throws JsonProcessingException, SQLException {
         
         Account account = mapper.readValue(ctx.body(), Account.class);
-   
         Account addedAccount = accountService.registerAccount(account);
         if (addedAccount != null) {
             ctx.json(mapper.writeValueAsString(addedAccount));
